@@ -17,7 +17,7 @@
            
              
 
-            <form method="POST" action="<?php echo base_url();?>/unidades/insertar" autocomplete="off">
+            <form method="POST" action="<?php echo base_url();?>/unidades/" autocomplete="off">
                 
                 <? csrf_field();?>
                 <div class="form-group">
