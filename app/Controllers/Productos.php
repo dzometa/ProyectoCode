@@ -34,6 +34,7 @@ class Productos extends BaseController
     }
 //Mostrar los eliminados
     public function eliminados($activo = 0)
+
     {
         $productos = $this->productos->where('activo',$activo)->findAll();
         //arreglo de la tabla
@@ -68,6 +69,7 @@ class Productos extends BaseController
             'prec_compra'=>$this->request->getPost('prec_compra'),
             'stock_minimo'=>$this->request->getPost('stock_minimo'),
             'inventariable'=>$this->request->getPost('inventariable'),
+            'existencia'=>$this->request->getPost('existencia'),
             'id_unidad'=>$this->request->getPost('id_unidad'),
             'id_categoria'=>$this->request->getPost('id_categoria')]);
 
@@ -86,8 +88,11 @@ class Productos extends BaseController
     // Funcion para mostrar vista editar
     public function  editar($id)
     {
-        $unidad = $this->productos->where('id',$id)->first();
-        $data =['titulo' => 'Editar Productos', 'datos'=>$unidad];
+        $unidades = $this->unidades->where('activo',1)->findAll();
+        $categorias = $this->categorias->where('activo',1)->findAll();
+        $producto = $this -> productos -> where('id', $id)-> first();
+        $data =['titulo' => 'Editar Producto', 'unidades'=>$unidades,'categorias'=>$categorias,
+        'producto'=> $producto];
         echo view('header');
         echo view('productos/editar', $data);
         echo view('footer');
@@ -97,9 +102,16 @@ class Productos extends BaseController
     public function actualizar()
     {
 
-        $this->productos->update($this->request->getPost('id'),['nombre'=> 
-        $this-> request ->getPost('nombre'),'nombre_corto'=>
-        $this->request->getPost('nombre_corto')]);
+        $this->productos->update($this->request->getPost('id'),[
+            'codigo'=> $this-> request ->getPost('codigo'),
+            'nombre'=>$this->request->getPost('nombre'),
+            'precio_venta'=>$this->request->getPost('precio_venta'),
+            'prec_compra'=>$this->request->getPost('prec_compra'),
+            'stock_minimo'=>$this->request->getPost('stock_minimo'),
+            'inventariable'=>$this->request->getPost('inventariable'),
+            'existencia'=>$this->request->getPost('existencia'),
+            'id_unidad'=>$this->request->getPost('id_unidad'),
+            'id_categoria'=>$this->request->getPost('id_categoria')]);
         return  redirect()->to(base_url().'/productos');
     }
 

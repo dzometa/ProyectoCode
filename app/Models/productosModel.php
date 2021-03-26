@@ -16,7 +16,7 @@ class ProductosModel extends Model
     protected $useSoftDeletes = false;
 
     protected $allowedFields = ['codigo', 'nombre', 'precio_venta', 'prec_compra',
-    'existenia', 'stock_minimo', 'inventariable', 'id_unidad', 'id_categoria', 'activo'];
+    'existencia', 'stock_minimo', 'inventariable', 'id_unidad', 'id_categoria', 'activo'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'fecha_alta';

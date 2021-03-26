@@ -6,9 +6,9 @@
             <div>
                     <p>
                          
-                            <a href="<?php echo base_url();?>/unidades" class="btn btn-warning">Unidades</a>
+                            <a href="<?php echo base_url();?>/productos" class="btn btn-warning">Productos</a>
 
-                    </p>eliminados
+                    </p>
 
             </div>
 
@@ -16,9 +16,11 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
+                                <th>Id</th>
+                                    <th>Codigo</th>
                                     <th>Nombre</th>
-                                    <th>Nombre Corto</th>
+                                    <th>Precio</th>
+                                    <th>Existencias</t>
                                     <th></th>
                                  
                                 </tr>
@@ -29,12 +31,14 @@
 
                                         <tr>
                                             <td><?php echo $dato['id'];?> </td>
+                                            <td><?php echo $dato['codigo'];?> </td>
                                             <td><?php echo $dato['nombre'];?> </td>
-                                            <td><?php echo $dato['nombre_corto'];?> </td>
+                                            <td><?php echo $dato['precio_venta'];?> </td>
+                                            <td><?php echo $dato['existencia'];?> </td>
 
                                           
                                            
-                                            <td><a href="#" data-href = " <?php echo base_url();?>/unidades/reingresar/<?php echo $dato['id'];?>" 
+                                            <td><a href="#" data-href = " <?php echo base_url();?>/productos/reingresar/<?php echo $dato['id'];?>" 
                                             data-toggle="modal" data-target="#modal-confirma" data-placement="top" title="Reingresar Registro" 
                                             class="btn btn-danger"><i class="fas fa-undo-alt"></i></a> 
                                         </td>

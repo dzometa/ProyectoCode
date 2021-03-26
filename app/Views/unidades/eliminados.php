@@ -6,7 +6,7 @@
             <div>
                     <p>
                          
-                            <a href="<?php echo base_url();?>/unidades" class="btn btn-warning">Unidades</a>
+                            <a href="<?php echo base_url();?>/unidades/eliminar" class="btn btn-warning">Unidades</a>
 
                     </p>eliminados
 

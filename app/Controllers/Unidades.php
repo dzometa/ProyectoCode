@@ -79,7 +79,7 @@ class Unidades extends BaseController
         {
             $data =['titulo' => 'Agregar Unidades','validation'=>$this->validator];
             echo view('header');
-            echo view('unidades/nuevo', $data);
+            echo view('unidades/', $data);
             echo view('footer');
         }   
        

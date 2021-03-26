@@ -75,7 +75,7 @@
                                 <div class="col-12 col-sm-6">
 
                                     <label>Stock Minimo</label>
-                                    <input class="form-control" id="stock_minimo" name="stock_minimo" type="numer" autofocus required />
+                                    <input class="form-control" id="stock_minimo" name="stock_minimo" type="numer"  required />
 
                                 </div>
                                 <div class="col-12 col-sm-6">
@@ -89,6 +89,14 @@
 
                             </div>
                             
+                        </div>
+
+                        <div class="form-group">
+                                    <div class="col-6 col-sm-6">
+                                  <label>Existencia</label>
+                                        <input class="form-control" id="existencia" name="existencia" type="numer"  required />
+                                    </div>
+                        
                         </div>
                                 
                                 
