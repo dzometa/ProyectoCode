@@ -22,7 +22,8 @@ class Unidades extends BaseController
                 
         ]
             ],
-            'nombre corto'=>   [
+            'nombre_corto'=>   [
+                'rules' => 'required',
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'El campo {field} es obligatorio.'
@@ -79,7 +80,7 @@ class Unidades extends BaseController
         {
             $data =['titulo' => 'Agregar Unidades','validation'=>$this->validator];
             echo view('header');
-            echo view('unidades/', $data);
+            echo view('unidades/nuevo', $data);
             echo view('footer');
         }   
        
@@ -87,10 +88,17 @@ class Unidades extends BaseController
 
 
     // Funcion para mostrar vista editar
-    public function  editar($id)
+    public function  editar($id, $valid=null)
     {
+
         $unidad = $this->unidades->where('id',$id)->first();
+     if($valid !=null){
+        $data =['titulo' => 'Editar Unidades', 'datos'=>$unidad, 'validation'=> $valid];
+     }else{
         $data =['titulo' => 'Editar Unidades', 'datos'=>$unidad];
+     }
+
+       
         echo view('header');
         echo view('unidades/editar', $data);
         echo view('footer');
@@ -99,11 +107,16 @@ class Unidades extends BaseController
 //Funcion para actualizar datos a la tabla 
     public function actualizar()
     {
-
-        $this->unidades->update($this->request->getPost('id'),['nombre'=> 
-        $this-> request ->getPost('nombre'),'nombre_corto'=>
-        $this->request->getPost('nombre_corto')]);
-        return  redirect()->to(base_url().'/unidades');
+        if($this->request->getMethod()=="post" && $this->validate($this->reglas))
+            {
+                $this->unidades->update($this->request->getPost('id'),['nombre'=> 
+                $this-> request ->getPost('nombre'),'nombre_corto'=>
+                $this->request->getPost('nombre_corto')]);
+                return  redirect()->to(base_url().'/unidades');
+            }else{
+              return  $this->editar($this->request->getPost('id'), $this->validator);  
+            }
+        
     }
 
 //Cambiar de estado a 0
