@@ -98,10 +98,12 @@
                         </div>
 
                         <div class="form-group">
+                        <div class="row">
                                     <div class="col-6 col-sm-6">
-                                  <label>Existencia</label>
+                                        <label>Existencia</label>
                                         <input class="form-control" id="existencia" name="existencia" type="numer"  required />
                                     </div>
+                         </div>           
                         
                         </div>
                                 
