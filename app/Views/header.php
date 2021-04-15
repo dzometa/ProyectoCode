@@ -63,6 +63,20 @@
                             
                               
                             </nav>
+
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"> <i class="fas fa-tools"></i></div>
+                            Configuraciones
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="<?php echo base_url();?>/configuraciones">Configuraciones</a>
+                                <a class="nav-link" href="<?php echo base_url();?>/usuarios">Usuarios</a>   
+                            
+                              
+                            </nav>
                         </div>
                        
                       
@@ -77,3 +91,4 @@
                 </div>
             </nav>
         </div>
+
